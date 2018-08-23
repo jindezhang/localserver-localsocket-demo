@@ -40,6 +40,7 @@ bool localserver_::sendMsg(QString &msg)
 
 void localserver_::close_()
 {
+    qDebug()<<"server close";
     m_server->close();
 
 }

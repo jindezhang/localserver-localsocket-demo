@@ -13,10 +13,13 @@ public:
     int init(QString &str);
     bool sendMsg(QString &msg);
     void close_();
+
 signals:
+    void disconnect_sig();
     void newMessage(QString & msg);
 public slots:
     void readMsg();
+    void disconnect_();
 private:
     QLocalSocket ls;
 };

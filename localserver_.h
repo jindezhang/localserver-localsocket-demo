@@ -5,6 +5,7 @@
 #include <QLocalServer>
 #include <QLocalSocket>
 #include <QTextStream>
+#include <QDebug>
 
 class localserver_:public QObject
 {

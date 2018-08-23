@@ -10,9 +10,12 @@ int localclinet_::init(QString &str)
     ls.connectToServer(str);
 
      if (ls.waitForConnected()){
-         if(ls.state() == QAbstractSocket::UnconnectedState)
+         if(ls.state() != QAbstractSocket::ConnectedState){
+            qDebug()<<"client state";
              return 1;
+         }
          connect(&ls, SIGNAL(readyRead()), this, SLOT(readMsg()));
+         connect(&ls, SIGNAL(disconnected()), this, SLOT(disconnect_()));
          return 0;
 
     }else
@@ -33,6 +36,11 @@ void localclinet_::close_()
 {
     ls.close();
 
+}
+
+void localclinet_::disconnect_()
+{
+    emit disconnect_sig();
 }
 
 void localclinet_::readMsg()

@@ -12,6 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Q8net_debug
 TEMPLATE = app
 
+RC_ICONS = cat.ico
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -28,12 +29,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     localserver_.cpp \
-    localclinet_.cpp
+    localclinet_.cpp \
+    tcpserver.cpp \
+    tcpclient.cpp
 
 HEADERS += \
         mainwindow.h \
     localserver_.h \
-    localclinet_.h
+    localclinet_.h \
+    tcpserver.h \
+    tcpclient.h
 
 FORMS += \
         mainwindow.ui
